@@ -48,14 +48,21 @@ def const_multiply_matrix(matrix, constant):
 
 
 def multiply_matrix(row_size, matrix1, matrix2):
-	output = []
 
+	# TODO Solve this, currently only the diagonal works
+
+	output = []
 
 	for y in range(row_size):
 		current_index = []
 		for x in range(row_size):
-			current_index.append(float(matrix1[x][y]) * float(matrix2[x][y]))
+			current_index.append(float(matrix1[y][x]) * float(matrix2[x][y]))
 		print(sum(current_index))
+
+	print("The result is:")
+	for row in output:
+		print(" ".join(row))
+	
 
 if __name__ == "__main__":
 
