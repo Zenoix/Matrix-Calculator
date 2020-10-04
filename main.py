@@ -26,7 +26,7 @@ def add_matrices(size, matrix1, matrix2):
         current_row = []
         for column in range(int(size[1])):
             current_row.append(
-                int(matrix1[row][column]) + int(matrix2[row][column]))
+                float(matrix1[row][column]) + float(matrix2[row][column]))
         current_row = map(str, current_row)
         output.append(current_row)
     print("The result is:")
@@ -47,17 +47,20 @@ def const_multiply_matrix(matrix, constant):
         print(" ".join(row))
 
 
-def multiply_matrix(row_size, matrix1, matrix2):
-
-	# TODO Solve this, currently only the diagonal works
+def multiply_matrix(num_rows, num_columns, matrix1, matrix2):
 
 	output = []
-
-	for y in range(row_size):
-		current_index = []
-		for x in range(row_size):
-			current_index.append(float(matrix1[y][x]) * float(matrix2[x][y]))
-		print(sum(current_index))
+	# iterate through rows of X
+	for i in range(len(matrix1)):
+		current_row = []
+	# iterate through columns of Y
+		for j in range(len(matrix2[0])):
+			current_index = 0
+			# iterate through rows of Y
+			for k in range(len(matrix2)):
+				current_index += float(matrix1[i][k]) * float(matrix2[k][j])
+			current_row.append(str(current_index))
+		output.append(current_row)
 
 	print("The result is:")
 	for row in output:
@@ -91,10 +94,11 @@ if __name__ == "__main__":
         elif selection == 3:
             size1, size2, matrix1, matrix2 = get_2_matrices()
             if size1[1] == size2[0]:
-                multiply_matrix(size1[0], matrix1, matrix2)
+                multiply_matrix(size1[0], size2[1], matrix1, matrix2)
             else:
                 print("The operation cannot be performed.")
         elif selection == 0:
             quit()
 
         print("")
+		
