@@ -75,7 +75,7 @@ def transpose_menu():
     print(menu)
     selection = int(input("Your choice: "))
     if selection == 1:
-        pass
+        main_trans()
     elif selection == 2:
         pass
     elif selection == 3:
@@ -83,12 +83,30 @@ def transpose_menu():
     elif selection == 4:
         pass
 
+def main_trans():
+    original_matrix = get_1_matrix()
+    new_matrix = original_matrix
+    for row_index, row in enumerate(original_matrix):
+        for index, _ in enumerate(row):
+            new_matrix[row_index][index] = original_matrix[index][row_index]
+    
+    print("The result is:")
+    for row in new_matrix:
+        print(" ".join(row))
+
+
+def side_trans():
+    pass
+
 def vert_trans():
     matrix = get_1_matrix()
     print("The result is:")
     for row in matrix:
         print(" ".join(row)[::-1])
 
+
+def hor_trans():
+    pass
 
 if __name__ == "__main__":
 
