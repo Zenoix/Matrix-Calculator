@@ -84,14 +84,11 @@ def transpose_menu():
         hor_trans()
 
 def main_trans():
-    original_matrix = get_1_matrix()
-    new_matrix = original_matrix
-    for row_index, row in enumerate(original_matrix):
-        for index, _ in enumerate(row):
-            new_matrix[row_index][index] = original_matrix[index][row_index]
-    
+    X = get_1_matrix()
+    result = [[X[j][i] for j in range(len(X))] for i in range(len(X[0]))]
+
     print("The result is:")
-    for row in new_matrix:
+    for row in result:
         print(" ".join(row))
 
 
