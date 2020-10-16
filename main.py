@@ -81,7 +81,7 @@ def transpose_menu():
     elif selection == 3:
         vert_trans()
     elif selection == 4:
-        pass
+        hor_trans()
 
 def main_trans():
     original_matrix = get_1_matrix()
@@ -106,7 +106,11 @@ def vert_trans():
 
 
 def hor_trans():
-    pass
+    matrix = get_1_matrix()
+    matrix.reverse()
+    print("The result is:")
+    for row in matrix:
+        print(" ".join(row))
 
 if __name__ == "__main__":
 
