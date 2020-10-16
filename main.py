@@ -49,23 +49,24 @@ def const_multiply_matrix(matrix, constant):
 
 def multiply_matrix(num_rows, num_columns, matrix1, matrix2):
 
-	output = []
-	# iterate through rows of X
-	for i in range(len(matrix1)):
-		current_row = []
-	# iterate through columns of Y
-		for j in range(len(matrix2[0])):
-			current_index = 0
-			# iterate through rows of Y
-			for k in range(len(matrix2)):
-				current_index += float(matrix1[i][k]) * float(matrix2[k][j])
-			current_row.append(str(current_index))
-		output.append(current_row)
+    output = []
+    # iterate through rows of X
+    for i in range(len(matrix1)):
+        current_row = []
+    # iterate through columns of Y
+        for j in range(len(matrix2[0])):
+            current_index = 0
+            # iterate through rows of Y
+            for k in range(len(matrix2)):
+                current_index += float(matrix1[i][k]) * float(matrix2[k][j])
+            current_row.append(str(current_index))
+        output.append(current_row)
 
-	print("The result is:")
-	for row in output:
-		print(" ".join(row))
-	
+    print("The result is:")
+    for row in output:
+        print(" ".join(row))
+
+
 def transpose_menu():
     menu = '''1. Main diagonal
 2. Side diagonal
@@ -83,17 +84,23 @@ def transpose_menu():
     elif selection == 4:
         hor_trans()
 
+
 def main_trans():
-    X = get_1_matrix()
-    result = [[X[j][i] for j in range(len(X))] for i in range(len(X[0]))]
+    original_matrix = get_1_matrix()
+    new_matrix = [[0 for i in range(len(original_matrix))]
+                  for j in range(len(original_matrix[0]))]
+    for i in range(len(original_matrix)):
+        for j in range(len(original_matrix[0])):
+            new_matrix[j][i] = original_matrix[i][j]
 
     print("The result is:")
-    for row in result:
+    for row in new_matrix:
         print(" ".join(row))
 
 
 def side_trans():
     pass
+
 
 def vert_trans():
     matrix = get_1_matrix()
@@ -109,13 +116,15 @@ def hor_trans():
     for row in matrix:
         print(" ".join(row))
 
+
+
 if __name__ == "__main__":
 
-    menu = '''1. Add matrices
+    menu = """1. Add matrices
 2. Multiply matrix by a constant
 3. Multiply matrices
 4. Transpose matrix
-0. Exit'''
+0. Exit"""
 
     while True:
         print(menu)
@@ -150,3 +159,4 @@ if __name__ == "__main__":
 
         print("")
 		
+
