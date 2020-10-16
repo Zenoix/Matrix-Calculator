@@ -71,7 +71,24 @@ def transpose_menu():
 2. Side diagonal
 3. Vertical line
 4. Horizontal line'''
+
     print(menu)
+    selection = int(input("Your choice: "))
+    if selection == 1:
+        pass
+    elif selection == 2:
+        pass
+    elif selection == 3:
+        vert_trans()
+    elif selection == 4:
+        pass
+
+def vert_trans():
+    matrix = get_1_matrix()
+    print("The result is:")
+    for row in matrix:
+        print(" ".join(row)[::-1])
+
 
 if __name__ == "__main__":
 
