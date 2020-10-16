@@ -66,17 +66,26 @@ def multiply_matrix(num_rows, num_columns, matrix1, matrix2):
 	for row in output:
 		print(" ".join(row))
 	
+def transpose_menu():
+    menu = '''1. Main diagonal
+2. Side diagonal
+3. Vertical line
+4. Horizontal line'''
+    print(menu)
 
 if __name__ == "__main__":
 
     menu = '''1. Add matrices
 2. Multiply matrix by a constant
 3. Multiply matrices
+4. Transpose matrix
 0. Exit'''
 
     while True:
         print(menu)
         selection = int(input("Your choice: "))
+
+        print("")
 
         if selection == 1:
             size1, size2, matrix1, matrix2 = get_2_matrices()
@@ -97,6 +106,9 @@ if __name__ == "__main__":
                 multiply_matrix(size1[0], size2[1], matrix1, matrix2)
             else:
                 print("The operation cannot be performed.")
+        
+        elif selection == 4:
+            transpose_menu()
         elif selection == 0:
             quit()
 
