@@ -99,7 +99,10 @@ def main_trans():
 
 
 def side_trans():
-    pass
+	matrix = get_1_matrix()
+    for i in range(1, len(matrix)):
+    	for j in range(1, len(matrix[0]) - i):
+        	matrix[i][j], matrix[len(matrix) - j][len(matrix) - i] = matrix[len(matrix) - j][len(matrix) - i], matrix[i][j]
 
 
 def vert_trans():
