@@ -78,7 +78,7 @@ def transpose_menu():
     if selection == 1:
         main_trans()
     elif selection == 2:
-        pass
+        side_trans()
     elif selection == 3:
         vert_trans()
     elif selection == 4:
@@ -99,10 +99,16 @@ def main_trans():
 
 
 def side_trans():
-	matrix = get_1_matrix()
-    for i in range(1, len(matrix)):
-    	for j in range(1, len(matrix[0]) - i):
-        	matrix[i][j], matrix[len(matrix) - j][len(matrix) - i] = matrix[len(matrix) - j][len(matrix) - i], matrix[i][j]
+
+    matrix = get_1_matrix()
+    new_matrix = [[0 for i in range(len(matrix))]
+                  for j in range(len(matrix[0]))]
+    for i in range(len(matrix)):
+        for j in range(len(matrix[0])):
+            new_matrix[i][j] = matrix[len(matrix)-1-j][len(matrix[0])-1-i]
+    print("The result is:")
+    for row in new_matrix:
+        print(" ".join(row))
 
 
 def vert_trans():
@@ -118,7 +124,6 @@ def hor_trans():
     print("The result is:")
     for row in matrix:
         print(" ".join(row))
-
 
 
 if __name__ == "__main__":
@@ -154,12 +159,10 @@ if __name__ == "__main__":
                 multiply_matrix(size1[0], size2[1], matrix1, matrix2)
             else:
                 print("The operation cannot be performed.")
-        
+
         elif selection == 4:
             transpose_menu()
         elif selection == 0:
             quit()
 
         print("")
-		
-
