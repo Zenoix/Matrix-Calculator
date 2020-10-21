@@ -23,7 +23,7 @@ def print_matrix(matrix, reverse=False):
     print("The result is:")
     if reverse == True:  
         for row in matrix:
-            print(" ".join(row)[::-1])
+            print(" ".join(row[::-1]))
     else:
         for row in matrix:
             print(" ".join(row))
@@ -67,7 +67,7 @@ def multiply_matrix(num_rows, num_columns, matrix1, matrix2):
             current_row.append(str(current_index))
         output.append(current_row)
 
-    print_matrix(matrix)
+    print_matrix(output)
 
 
 def transpose_menu():
@@ -108,7 +108,7 @@ def side_trans():
         for j in range(len(matrix[0])):
             output[i][j] = matrix[len(matrix)-1-j][len(matrix[0])-1-i]
     
-    print(output)
+    print_matrix(output)
 
 
 def vert_trans():
