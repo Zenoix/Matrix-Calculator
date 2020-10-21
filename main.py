@@ -19,6 +19,14 @@ def get_2_matrices():
     matrix2 = [input().split() for row in range(size2[0])]
     return size1, size2, matrix1, matrix2
 
+def print_matrix(matrix, reverse=False):
+    print("The result is:")
+    if reverse == True:  
+        for row in matrix:
+            print(" ".join(row)[::-1])
+    else:
+        for row in matrix:
+            print(" ".join(row))
 
 def add_matrices(size, matrix1, matrix2):
     output = []
@@ -29,9 +37,8 @@ def add_matrices(size, matrix1, matrix2):
                 float(matrix1[row][column]) + float(matrix2[row][column]))
         current_row = map(str, current_row)
         output.append(current_row)
-    print("The result is:")
-    for row in output:
-        print(" ".join(row))
+    print_matrix(output)
+    
 
 
 def const_multiply_matrix(matrix, constant):
@@ -42,9 +49,7 @@ def const_multiply_matrix(matrix, constant):
             current_row.append(float(value) * constant)
         current_row = map(str, current_row)
         output.append(current_row)
-    print("The result is:")
-    for row in output:
-        print(" ".join(row))
+    print_matrix(output)
 
 
 def multiply_matrix(num_rows, num_columns, matrix1, matrix2):
@@ -62,9 +67,7 @@ def multiply_matrix(num_rows, num_columns, matrix1, matrix2):
             current_row.append(str(current_index))
         output.append(current_row)
 
-    print("The result is:")
-    for row in output:
-        print(" ".join(row))
+    print_matrix(matrix)
 
 
 def transpose_menu():
@@ -87,43 +90,36 @@ def transpose_menu():
 
 def main_trans():
     original_matrix = get_1_matrix()
-    new_matrix = [[0 for i in range(len(original_matrix))]
+    output = [[0 for i in range(len(original_matrix))]
                   for j in range(len(original_matrix[0]))]
     for i in range(len(original_matrix)):
         for j in range(len(original_matrix[0])):
-            new_matrix[j][i] = original_matrix[i][j]
+            output[j][i] = original_matrix[i][j]
 
-    print("The result is:")
-    for row in new_matrix:
-        print(" ".join(row))
+    print_matrix(output)
 
 
 def side_trans():
 
     matrix = get_1_matrix()
-    new_matrix = [[0 for i in range(len(matrix))]
+    output = [[0 for i in range(len(matrix))]
                   for j in range(len(matrix[0]))]
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
-            new_matrix[i][j] = matrix[len(matrix)-1-j][len(matrix[0])-1-i]
-    print("The result is:")
-    for row in new_matrix:
-        print(" ".join(row))
+            output[i][j] = matrix[len(matrix)-1-j][len(matrix[0])-1-i]
+    
+    print(output)
 
 
 def vert_trans():
     matrix = get_1_matrix()
-    print("The result is:")
-    for row in matrix:
-        print(" ".join(row)[::-1])
+    print_matrix(matrix, reverse=True)
 
 
 def hor_trans():
     matrix = get_1_matrix()
     matrix.reverse()
-    print("The result is:")
-    for row in matrix:
-        print(" ".join(row))
+    print_matrix(matrix)
 
 
 if __name__ == "__main__":
